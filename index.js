@@ -1,38 +1,43 @@
 // packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
-const manager = require('./lib/Manager');
+const manager = require("./lib/Manager");
 const askIntQuestions = require("./lib/Intern");
 const askEngQuestions = require("./lib/Engineer");
-const generateHTML = require('./src/html');
-
+const generateHTML = require("./src/html");
 
 const output = [];
 function init() {
     const ask = () => {
-        let manQuestions = manager.manQuestions();
-        inquirer.prompt(manQuestions).then((answers) => {
-            output.push(answers);
-          console.log(`output: ${JSON.stringify(output)}`);
-          switch (answers.manAddMember) {
-            case "Engineer":
-              break;
-            case "Intern":
-              break;
-            default:
-              break;
-          }
-        });
-    }
+        let mAnswers = manager.askManQuestions();
 
-    ask();
-//   inquirer.prompt(questions).then((answers) => {
-//     fs.appendFile(`./dist/index.html`, generateHTML(answers), (err) =>
-//       err
-//         ? console.error(err)
-//         : console.log(`${answers.filename}.md was created.`)
-//     );
-//   });
+        console.log(mAnswers);
+    // const askMan = () => {
+    //   inquirer.prompt(manager.manQuestions()).then((answers) => {
+    //     output.push(answers);
+    //     console.log(`output: ${JSON.stringify(output)}`);
+    //     switch (answers.manAddMember) {
+    //       case "Engineer":
+    //         break;
+    //       case "Intern":
+    //         break;
+    //       default:
+    //         break;
+    //     }
+    //   });
+    //   };
+    //   const askEng = () => {
+
+    //   }
+  };
+  ask();
+    // inquirer.prompt(questions).then((answers) => {
+    //   fs.appendFile(`./dist/index.html`, generateHTML(answers), (err) =>
+    //     err
+    //       ? console.error(err)
+    //       : console.log(`${answers.filename}.md was created.`)
+    //   );
+    // });
 }
 init();
 /**
