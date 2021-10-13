@@ -1,0 +1,83 @@
+/*
+COLOR PALETTE
+*/
+:root {
+  --imperialRed: #E63946;
+  --honeyDew: #F1FAEE;
+  --powderBlue: #A8DADC;
+  --celadonBlue: #457B9D;
+  --prussianBlue: #1D3557;
+}
+/* Universal Selector */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/* sets default values*/
+body {
+  background-color: var(--celadonBlue);
+  color:var(--honeyDew);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 1.2rem;
+}
+
+h1, h2, h5 {
+  text-transform: capitalize;
+}
+h1, h2 {
+  font-size: 2rem;
+}
+h5 {
+  font-size: 1.5rem;
+}
+
+a {
+  color: var(--powderBlue);
+  text-decoration: underline;
+}
+
+a:hover {
+    color: var(--prussianBlue);
+    background-color: var(--honeyDew);
+}
+/* ------HEADER------ */
+header {
+  padding: 1rem;
+  background-color: var(--imperialRed);
+  text-align: center;
+  color: var(--prussianBlue)
+  /* border-bottom: 0.25rem dashed var(--powderBlue); */
+}
+
+header h1 {
+  display: inline-block;
+  font-size: 4rem;
+  /* border-bottom: 1rem dashed var(--powderBlue); */
+}
+
+/* ------MAIN------ */
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.card {
+  background-color:unset;
+  border: 0.15rem solid var(--powderBlue);
+  margin-top: 0.25rem;
+  width: 16rem;
+  margin: 0.5rem;
+}
+
+.list-group-item {
+  background-color: var(--prussianBlue);
+  /* text-align: center; */
+  color: var(--honeyDew);
+  margin: 0.25rem;
+}
+
+.card-img-top {
+    max-width: 33%;
+    align-self: center;
+}
