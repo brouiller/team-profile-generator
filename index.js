@@ -1,4 +1,4 @@
-// packages and files needed for this application
+// libraries and files needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
 const { Manager } = require("./lib/Manager");
@@ -70,17 +70,13 @@ const addMore = (more) => {
       askInt();
       break;
     default:
-      const allArr = manArr.concat(engArr, intArr);
-      console.log(allArr);
       buildHTML();
       break;
   }
 };
 
-//build the ./src/index.js file to append html to ./src/index.html
+//build the ./dist/assets/js/index.js file to append html to ./dist/index.html
 const buildHTML = () => {
-  // const allArr = manArr.concat(engArr, intArr);
-  // const exportArr = [];
   let exportString = "";
   manArr.forEach((element) => {
     exportString += `<div class='col'><div class='card'><img src='./assets/imgs/manager.png' class='card-img-top' alt='manager icon'><div class='card-body'><h5 class='card-title'>${element.name}</h5><p class='card-text'>Manager</p></div><ul class='list-group list-group-flush'><li class='list-group-item'>ID: ${element.id}</li><li class='list-group-item'>Email: <a href='mailto:${element.email}'>${element.email}</a></li><li class='list-group-item'>Office: ${element.office}</li></ul></div></div>`;
@@ -92,13 +88,13 @@ const buildHTML = () => {
     exportString += `<div class='col'><div class='card'><img src='./assets/imgs/intern.png' class='card-img-top' alt='intern icon'><div class='card-body'><h5 class='card-title'>${element.name}</h5><p class='card-text'>Intern</p></div><ul class='list-group list-group-flush'><li class='list-group-item'>ID: ${element.id}</li><li class='list-group-item'>Email: <a href='mailto:${element.email}'>${element.email}</a></li><li class='list-group-item'>School: ${element.school}</li></ul></div></div>`;
   });
   fs.writeFile(
-    "./src/assets/js/index.js",
+    "./dist/assets/js/index.js",
     `const colEl = document.getElementById('hook');
 colEl.innerHTML = "${exportString}";`,
     "utf8",
     function (err) {
       if (err) return console.log(err);
-      console.log("Webpage created.");
+      console.log("Team webpage created.");
     }
   );
 };
